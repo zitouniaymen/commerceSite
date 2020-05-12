@@ -1,42 +1,54 @@
 package com.mcommandes.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import java.util.Date;
 
 @Entity
+@Table(name="commande")
 public class Commande {
 
     @Id
     @GeneratedValue
     private int id;
-
+    @Column(name = "productId", nullable = false)
     private Integer productId;
-
+    @Column(name = "dateCommande", nullable = false)
     private Date dateCommande;
-
+    @Column(name = "quantite", nullable = false)
     private Integer quantite;
-
+    @Column(name = "commandePayee", nullable = false)
     private Boolean commandePayee;
 
     public Commande() {
     }
 
-    public Commande(int id, Integer productId, Date dateCommande, Integer quantite, Boolean commandePayee) {
-        this.id = id;
-        this.productId = productId;
-        this.dateCommande = dateCommande;
-        this.quantite = quantite;
-        this.commandePayee = commandePayee;
-    }
+//    public Commande(int id, Integer productId, Date dateCommande, Integer quantite, Boolean commandePayee) {
+//        this.id = id;
+//        this.productId = productId;
+//        this.dateCommande = dateCommande;
+//        this.quantite = quantite;
+//        this.commandePayee = commandePayee;
+//    }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public Commande(Integer productId, Date dateCommande, Integer quantite, Boolean commandePayee) {
+		super();
+		this.productId = productId;
+		this.dateCommande = dateCommande;
+		this.quantite = quantite;
+		this.commandePayee = commandePayee;
+	}
+
+	public void setId(int id) {
         this.id = id;
     }
 
